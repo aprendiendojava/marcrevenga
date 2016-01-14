@@ -191,5 +191,10 @@ public class Main {
 			Coche c2 = new Coche("1111BBB", "Peugeot", "307", 5);
 			System.out.println(c2.getMarca());
 			
+			System.out.println(c2);
+			
+			System.out.println(c1.getNumCoches());
+			System.out.println(c2.getNumCoches());
+			System.out.println(Coche.getNumCoches());
 	}
 }
