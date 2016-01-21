@@ -6,6 +6,9 @@ import com.wpsnetwork.patrones.abstractfactory.FormaFactory;
 import com.wpsnetwork.patrones.abstractfactory.interfaces.Forma;
 import com.wpsnetwork.patrones.builder.Comensal;
 import com.wpsnetwork.patrones.builder.ComensalBuilder;
+import com.wpsnetwork.patrones.dao.ClienteHibernateDao;
+import com.wpsnetwork.patrones.dao.ClienteOracleDao;
+import com.wpsnetwork.patrones.dao.interfaces.ClienteDao;
 import com.wpsnetwork.patrones.factory.Paciente;
 import com.wpsnetwork.patrones.factory.PacienteFactory;
 import com.wpsnetwork.patrones.iterator.Cliente;
@@ -14,6 +17,7 @@ import com.wpsnetwork.patrones.iterator.interfaces.Iterator;
 import com.wpsnetwork.patrones.observer.EmisorEvento;
 import com.wpsnetwork.patrones.observer.ReceptorEvento;
 import com.wpsnetwork.patrones.singleton.ClienteSingleton;
+import com.wpsnetwork.patrones.wrapper.ClaseWrapper;
 
 public class Main {
 
@@ -59,6 +63,18 @@ public class Main {
 		emisor.addObserver(oyente);
 		emisor.addAlgo();
 		emisor.eliminar();
+		
+		//Patrón DAO
+		ClienteDao daoCliente1 = new ClienteHibernateDao();
+		ClienteDao daoCliente2 = new ClienteOracleDao();
+		
+		//Wrapper
+		ClaseWrapper w = new ClaseWrapper();
+		System.out.println(w.getValor());
+		
+		w.setValor(10);
+		
+		System.out.println(w.getValor());
 	}
 
 }
