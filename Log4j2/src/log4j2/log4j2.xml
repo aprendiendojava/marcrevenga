@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration monitorInterval="30">
+
+	<Appenders>
+		<Console name="STDOUT" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) (Método: %M) - %m%n" />
+		</Console>
+		<File name="AllLogger" fileName="logs/AllLog4j.log" append="false">
+			<PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) (Método: %M) - %m%n" />
+		</File>
+		<File name="FileLoggerEntidades" fileName="logs/EntidadesLog4j.log" append="false">
+			<PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) (Método: %M) - %m%n" />
+		</File>
+		<File name="FileLoggerEntidadesTrace" fileName="logs/EntidadesTraceLog4j.log" append="false">
+			<PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) (Método: %M) - %m%n" />
+			<ThresholdFilter level="DEBUG" onMatch="DENY" onMismatch="ACCEPT" />
+		</File>
+	</Appenders>
+		
+	
+	<Loggers>
+		<Logger name="com.wpsnetwork.entidades" level="trace">
+			<AppenderRef ref="FileLoggerEntidades" />
+			<AppenderRef ref="FileLoggerEntidadesTrace" />
+		</Logger>
+		<Root level="trace">
+			<AppenderRef ref="STDOUT" />
+			<AppenderRef ref="AllLogger" />
+		</Root>
+	</Loggers>
+</Configuration>
