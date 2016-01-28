@@ -21,6 +21,8 @@ public class Main {
 		
 		Cliente c1 = new Cliente(1, "Pepito");
 		Empresa e1 = new Empresa(1, "ACME SA");
+		
+		
 	}
 
 }
