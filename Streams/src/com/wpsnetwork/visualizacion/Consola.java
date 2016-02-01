@@ -123,6 +123,24 @@ public class Consola {
 				System.out.println("	Nombre: " + p.getNombre());
 			}
 		}
+		
+		//Crear dos grupos. Uno para personas de edad > 30 y otro para edad <=30
+		Map<Boolean, List<Persona>> mapa2 = personas.stream()
+													.collect(Collectors.partitioningBy(p->p.getEdad()<=30));
+		
+		for(boolean cond: mapa2.keySet()){
+			System.out.println("Condición : " + cond);
+			for(Persona p : mapa2.get(cond)){
+				System.out.println("	Nombre: " + p.getNombre());
+			}
+		}
+		
+		//Obtener todos los nombres de personas en único String
+		String nombresPersonas = personas.stream()
+								 		 .map(Persona::getNombre)
+								 		 .collect(Collectors.joining("-"));
+		
+		System.out.println(nombresPersonas);
 	}
 
 }
