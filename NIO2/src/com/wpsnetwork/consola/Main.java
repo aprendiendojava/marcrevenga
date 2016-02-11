@@ -3,6 +3,7 @@ package com.wpsnetwork.consola;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.file.FileVisitOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -33,12 +34,18 @@ public class Main {
 		//Para operar con Paths usaremos la clase Files
 		try {
 		
-			Files.createDirectory(carpeta);					//crea una carpeta
-			Files.createFile(carpeta.resolve(fichero));		//crea un fichero
+			//Files.createDirectory(carpeta);					//crea una carpeta
+			//Files.createFile(carpeta.resolve(fichero));		//crea un fichero
 			
-			Files.copy(carpeta.resolve(fichero), 
-										carpeta.resolve(Paths.get("fichero2.txt")), 
-										StandardCopyOption.REPLACE_EXISTING);
+			//Files.copy(carpeta.resolve(fichero), 
+//										carpeta.resolve(Paths.get("fichero2.txt")), 
+//										StandardCopyOption.REPLACE_EXISTING);
+			
+			
+			//El walk permite crear un stream para navegar por el disco duro
+			Files.walk(Paths.get("c:","windows"), FileVisitOption.FOLLOW_LINKS)
+				 .filter( f -> Files.isReadable(f) && Files.isDirectory(f))
+				 .forEach( f -> System.out.println(f));
 		
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
