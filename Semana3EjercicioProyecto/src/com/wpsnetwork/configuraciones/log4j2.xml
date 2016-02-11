@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration monitorInterval="30">
+
+	<Appenders>
+		<Console name="STDOUT" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) (Método: %M) - %m%n" />
+		</Console>
+		<File name="FileLoggerConsola" fileName="logs/consola.txt" append="false">
+			<PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) (Método: %M) - %m%n" />
+		</File>
+		<File name="FileLoggerDao" fileName="logs/dao.txt" append="false">
+			<PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) (Método: %M) - %m%n" />
+		</File>
+		<File name="FileLoggerDto" fileName="logs/dto.txt" append="false">
+			<PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) (Método: %M) - %m%n" />
+		</File>
+		<Console name="STDOUT_ERROR_FATAL" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) (Método: %M) - %m%n" />
+			<ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY" />
+		</Console>
+	</Appenders>
+		
+	
+	<Loggers>
+		<Root level="trace">
+			<AppenderRef ref="STDOUT_ERROR_FATAL" />
+		</Root>
+		<Logger name="com.wpsnetwork.consola" level="trace">
+			<AppenderRef ref="STDOUT" />
+			<AppenderRef ref="FileLoggerConsola" />
+		</Logger>
+		<Logger name="com.wpsnetwork.dao" level="trace">
+			<AppenderRef ref="FileLoggerDao" />
+		</Logger>
+		<Logger name="com.wpsnetwork.dto" level="trace">
+			<AppenderRef ref="FileLoggerDto" />
+		</Logger>
+	</Loggers>
+</Configuration>

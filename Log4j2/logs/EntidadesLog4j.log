@@ -1,0 +1,8 @@
+2016-01-25 10:16:47,110 TRACE [main] personal.Cliente (Cliente.java:18) (Método: <init>) - Entramos en el constructor de Cliente
+2016-01-25 10:16:47,111 DEBUG [main] personal.Cliente (Cliente.java:23) (Método: <init>) - Parametro codigo: 1
+2016-01-25 10:16:47,111 DEBUG [main] personal.Cliente (Cliente.java:24) (Método: <init>) - Parametro nombre: Pepito
+2016-01-25 10:16:47,112 TRACE [main] personal.Cliente (Cliente.java:28) (Método: <init>) - Salimos del constructor de Cliente
+2016-01-25 10:16:47,113 TRACE [main] empresa.Empresa (Empresa.java:16) (Método: <init>) - Entramos en el constructor de la Empresa
+2016-01-25 10:16:47,117 DEBUG [main] empresa.Empresa (Empresa.java:21) (Método: <init>) - Parametro codigo: 1
+2016-01-25 10:16:47,117 DEBUG [main] empresa.Empresa (Empresa.java:22) (Método: <init>) - Parametro nombre: ACME SA
+2016-01-25 10:16:47,117 TRACE [main] empresa.Empresa (Empresa.java:26) (Método: <init>) - Salimos del constructor de la Empresa
