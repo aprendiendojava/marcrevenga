@@ -62,12 +62,21 @@ public class RepositorioClientesDto implements Dao<Cliente>{
 	}
 
 	@Override
-	public void update(Cliente arg0) throws SQLException {
-		// TODO Auto-generated method stub
+	public void update(Cliente cliente) throws SQLException {
+		dao.update(convertirDtoADao(cliente));
+		RepositorioPedidosDao pedidosDao = new RepositorioPedidosDao();
 		
+		for(Pedido pedido : cliente.getPedidos()){
+			com.wpsnetwork.dao.entidades.Pedido pedidoDao = pedidosDao.get(pedido.getId());
+			
+			if(pedidoDao == null)
+				pedidosDao.insert(RepositorioPedidosDto.convertirDtoADao(pedido));
+			else
+				pedidosDao.update(RepositorioPedidosDto.convertirDtoADao(pedido));
+		}
 	}
 	
-	private static Cliente convertirDaoADto(com.wpsnetwork.dao.entidades.Cliente clienteDao) {
+	public static Cliente convertirDaoADto(com.wpsnetwork.dao.entidades.Cliente clienteDao) {
 		Cliente cDto = null;
 		if(clienteDao!=null)
 			cDto = new Cliente(clienteDao.getId(), 
@@ -76,7 +85,7 @@ public class RepositorioClientesDto implements Dao<Cliente>{
 		return cDto;
 	}
 
-	private com.wpsnetwork.dao.entidades.Cliente convertirDtoADao(Cliente cliente) {
+	public static com.wpsnetwork.dao.entidades.Cliente convertirDtoADao(Cliente cliente) {
 		return new com.wpsnetwork.dao.entidades.Cliente(cliente.getId(), 
 														cliente.getNombre());
 	}

@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.wpsnetwork.dao.RepositorioPedidosDao;
 import com.wpsnetwork.dao.interfaces.Dao;
+import com.wpsnetwork.dto.RepositorioPedidosDto;
 
 public class Cliente {
 	private com.wpsnetwork.dao.entidades.Cliente clienteDao;
@@ -45,7 +46,14 @@ public class Cliente {
 	
 	public List<Pedido> getPedidos(){
 		if(pedidos == null){
-			pedidos = buscarPedidos(); 
+			try {
+				
+				pedidos = buscarPedidos();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
 		}
 		return pedidos;
 	}
@@ -55,7 +63,7 @@ public class Cliente {
 	public String toString() {
 		return "Cliente [Id: " + clienteDao.getId() +
 						" Nombre: " + clienteDao.getNombre() +
-						" Pedidos: " + this.pedidos + "]";
+						" Pedidos: " + getPedidos() + "]";
 	}	
 	
 	private List<Pedido> buscarPedidos() throws SQLException{
@@ -64,7 +72,7 @@ public class Cliente {
 		List<Pedido> listaDto = new ArrayList<>();
 		for(com.wpsnetwork.dao.entidades.Pedido p : pedidosDao){
 			if(p.getCliente() == getId())
-				listaDto.add(RepositorioPedidosDto.convertirDaoDto(p));
+				listaDto.add(RepositorioPedidosDto.convertirDaoADto(p));
 		}
 			
 		return listaDto;
