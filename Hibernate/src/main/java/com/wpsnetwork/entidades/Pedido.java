@@ -55,4 +55,10 @@ public class Pedido implements java.io.Serializable {
 		this.info = info;
 	}
 
+	@Override
+	public String toString() {
+		return "Pedido [id=" + id + ", fecha=" + fecha + ", info=" + info + "]";
+	}
+
+	
 }

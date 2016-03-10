@@ -11,7 +11,7 @@
         <property name="nombre" type="string">
             <column name="NOMBRE" length="100" not-null="true" />
         </property>
-        <set name="pedidos" table="PEDIDO" inverse="true" lazy="true" fetch="select">
+        <set name="pedidos" table="PEDIDO" inverse="true" lazy="true" fetch="select" cascade="persist,delete">
             <key>
                 <column name="IDCLIENTE" precision="5" scale="0" not-null="true" />
             </key>
