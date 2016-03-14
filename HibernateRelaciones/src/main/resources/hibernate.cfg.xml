@@ -20,5 +20,20 @@
         
         <mapping class="com.wpsnetwork.entidades.unoAuno.Direccion" />
         <mapping class="com.wpsnetwork.entidades.unoAuno.Persona" />
+        
+        <mapping class="com.wpsnetwork.entidades.unoAuno.Pais" />
+        <mapping class="com.wpsnetwork.entidades.unoAuno.Presidente" />
+        
+        <mapping class="com.wpsnetwork.entidades.unoAmuchos.Libro" />
+        <mapping class="com.wpsnetwork.entidades.unoAmuchos.Persona" />
+        
+        <mapping class="com.wpsnetwork.entidades.unoAmuchos.Categoria" />
+        <mapping class="com.wpsnetwork.entidades.unoAmuchos.Producto" />
+        
+        <mapping class="com.wpsnetwork.entidades.muchosAmuchos.Estudiante" />
+        <mapping class="com.wpsnetwork.entidades.muchosAmuchos.Materia" />
+        
+        <mapping class="com.wpsnetwork.entidades.muchosAmuchos.Libro" />
+        <mapping class="com.wpsnetwork.entidades.muchosAmuchos.Autor" />
     </session-factory>
 </hibernate-configuration>
