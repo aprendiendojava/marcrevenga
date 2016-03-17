@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	
+	<body>
+		<script>
+			//Comentario de línea
+			/* Comenta todo un bloque */
+			
+			var variable = 2;
+			variable = "Cadena";
+			
+			var array = [];	//Declaramos un array vacío
+			var diasSemana = ["Lunes","Martes","Miércoles"];
+			
+			
+			array[3] = 5;
+			array["PEPITO"] = 3;
+			
+			//alert(array["PEPITO"]);
+			array.push(10);		//Pone un valor al final del array
+			
+			for(var dia of diasSemana){
+				//alert("Día de la semana" + dia);
+			}
+			
+			function nombreFuncion(x, y){
+				//alert(x + y);
+				return x + y;
+			}
+			
+			var ret = nombreFuncion(1,2);
+			
+			var persona = {};		//Declara un objeto persona
+			persona.nombre = "Juanito";
+			persona.edad = 13;
+			persona.getEdad = function (){
+									return edad;
+								};
+								
+			function Persona(nombre, edad){	//Método constructor
+				this.nombre = nombre;
+				this.edad = edad;
+			}
+			
+			var p1 = new Persona("María", 20);
+			
+			alert(p1.nombre);
+		</script>
+	</body>
+</html>
