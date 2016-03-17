@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Título personalizadp</title>
+		<style>
+			input, div{
+				background-color: yellow;
+			}
+			input[type=submit]{
+				background-color: blue;
+			}
+			#cabecera{
+				background-color: gray;
+				border: maroon inset medium;
+			}
+			.dato{
+				background-color:#FFFFFF;
+			}
+			input:focus{
+				margin-left: 5px;
+			}
+			input:invalid{
+				background-color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<div>Formulario</div>
+		<form action="receptorDatos.jsp" method="get">
+			<fieldset>
+				<legend id="cabecera">Título del fieldset</legend>
+				
+				<label>Nombre:</label>
+				<input class="dato" type="text" name="nombre" value="" required pattern="[A-ZÑ].*"/><br/>
+				
+				<label>Altura:</label>
+				<input class="dato" type="number" name="altura" value="" min="1" max="2.5" step="0.1"/><br/>
+				
+				<label>Fecha de nacimiento:</label>
+				<input class="dato" type="date" name="fecha" value=""/><br/>
+				
+				<ul>
+					<li>Opcion 1</li>
+					<li>Opcion 2</li>
+					<li>Opcion 3</li>
+				</ul>
+				
+				<ol>
+					<li>Opcion 1</li>
+					<li>Opcion 2</li>
+					<li>Opcion 3</li>
+				</ol>
+				
+				<select name="opcionLista">
+					<option value="1">Pepito</option>
+					<option value="2">Juanito</option>
+				</select>
+				
+				<input type="radio" name="opcionRadio" value="opcion1">Opción 1</input>
+				<input type="radio" name="opcionRadio" value="opcion2">Opción 2</input>
+				<input type="radio" name="opcionRadio" value="opcion3">Opción 3</input>
+				
+				<input type="checkbox" name="opcionCheck" value="opcion1">Opción 1</input>
+				<input type="checkbox" name="opcionCheck" value="opcion2">Opción 2</input>
+				<input type="checkbox" name="opcionCheck" value="opcion3">Opción 3</input>
+			</fieldset>
+			<input type="submit" name="Enviar" value="Enviar formulario" />
+			<input type="reset" name="Borrar" value="Limpiar" />
+		</form>
+		
+		<header>Cabecera</header>
+		<footer>Pie de página</footer>
+		<nav>
+			<a href="http://www.google.com">Google</a>
+			<a href="http://www.yahoo.com">Yahoo</a>
+		</nav>
+		<section>
+			<article>Articulo 1</article>
+			<article>Articulo 2</article>
+		</section>
+		
+		<b>Negrita</b><br />
+		<i>Cursiva</i><br />
+		<u>Subrayado</u><br />
+		
+		Un texto <mark>con parte</mark> resaltada<br />
+		<strong>Resalta un texto -- Importante</strong><br />
+		<small>Texto son importancia</small><br />
+		
+		<figure>
+			<img src="./media/imagen.png" 
+					alt="imagen logo">
+			<figcaption>Título a la imagen</figcaption>
+		</figure>
+		
+		<video src="./media/video.mp4" controls></video>
+		
+		
+	</body>
+</html>
