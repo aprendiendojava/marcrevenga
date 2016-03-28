@@ -10,8 +10,6 @@
   </servlet>
   <servlet>
   	<servlet-name>ObtenerNombre</servlet-name>
-  	<display-name>ObtenerNombre</display-name>
-  	<description></description>
   	<servlet-class>servlets.ObtenerNombre</servlet-class>
   </servlet>
   <servlet-mapping>
