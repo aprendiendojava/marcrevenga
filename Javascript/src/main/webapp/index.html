@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
+		<script src="js/milibreria.js"></script>
 	</head>
 	
 	<body>
@@ -48,7 +49,15 @@
 			
 			var p1 = new Persona("María", 20);
 			
-			alert(p1.nombre);
+			//alert(p1.nombre);
+			
+			Persona.prototype.diHola = function(){
+				alert('Hola, soy ' + this.nombre);
+			}
+			
+			//p1.diHola();
+			
+			alert('La suma de 3 +2 es: ' + suma(3,2));
 		</script>
 	</body>
 </html>
