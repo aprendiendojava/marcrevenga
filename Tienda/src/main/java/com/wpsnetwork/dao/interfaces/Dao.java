@@ -29,15 +29,13 @@ public interface Dao<T> {
 		getCurrentSession().delete(entity);
 	};
 	@SuppressWarnings("unchecked")
-	default public List<T> findAll(){
-		T objeto = (T) new Object();
-		String sql = "from " + objeto.getClass().getCanonicalName();
-		System.out.println("sql");
+	default public List<T> findAll(Class<T> metadato){
+		String sql = "from " + metadato.getName();
 		List<T> lista = (List<T>) getCurrentSession().createQuery(sql).list();
 		return lista;
 	};
-	default public void deleteAll(){
-		List<T> entityList = findAll();
+	default public void deleteAll(Class<T> metadato){
+		List<T> entityList = findAll(metadato);
 		for (T entity : entityList) {
 			delete(entity);
 		}
