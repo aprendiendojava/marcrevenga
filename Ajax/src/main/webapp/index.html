@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Ejemplo de AJAX</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+</head>
+<body>
+	Dato: <input type="text" id="valor" value="" /><BR/>
+	Hora del servidor:
+	<div id="hora"></div>
+	<input type="button" value="Iniciar" onClick="iniciar()" />
+	<input type="button" value="Parar" onClick="parar()" />
+	
+	<script>
+		function actualizarHora(){
+			/*
+			
+			$.get("./hora.jsp", null, function(dato){
+				$("#hora")[0].innerHTML = dato;
+			});
+			
+			*/
+			
+			var valor = $("#valor").val();
+			var solicitud = $.ajax(	
+								"hora.jsp",
+								{
+									type : "post",
+									data : "valor="+valor
+								}
+								);
+			solicitud.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			solicitud.success(function (dato){
+				$("#hora")[0].innerHTML = dato;
+			});
+		}
+		
+		var codigo;
+		function iniciar(){
+			codigo = window.setInterval("actualizarHora()", 1000);
+		}
+		
+		function parar(){
+			window.clearInterval(codigo);
+		}
+	</script>
+</body>
+</html>
